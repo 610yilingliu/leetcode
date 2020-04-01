@@ -9,6 +9,8 @@ class Solution:
     def minSubArrayLen(self, s, nums):
         if not nums:
             return 0
+        if nums[0] >= s:
+            return 1
         l = 0
         r = 1
         ans = float('inf')
