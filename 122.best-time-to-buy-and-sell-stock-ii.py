@@ -30,4 +30,3 @@ if __name__ == '__main__':
     b = a.maxProfit([0,5,5,6,2,1,1,3])
     print(b)
 # @lc code=end
-
