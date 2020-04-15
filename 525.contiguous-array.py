@@ -24,7 +24,6 @@ class Solution:
         ans = max([d[key][1] - d[key][0] for key in d])
         return ans
 
-
 if __name__ == '__main__':
     a = Solution()
     b = a.findMaxLength([0,1])

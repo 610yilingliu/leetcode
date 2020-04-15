@@ -1,7 +1,7 @@
 #
-# @lc app=leetcode id=116 lang=python3
+# @lc app=leetcode id=117 lang=python3
 #
-# [116] Populating Next Right Pointers in Each Node
+# [117] Populating Next Right Pointers in Each Node II
 #
 
 # @lc code=start
