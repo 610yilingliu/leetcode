@@ -5,58 +5,37 @@
 #
 
 # @lc code=start
+import heapq
+
 class Solution:
     def getPermutation(self, n, k):
-        if n == 0:
-            return '0'
-        if n == 1:
+        if n < 2:
             return str(n)
-        nums = []
-        for i in range(n):
-            nums.append(str(i + 1))
         if k == 1:
-            return "".join(nums)
-        div = 1
-        for i in range(1, n+1):
-            div = div * i
-        print(div)
-        if k % div !=0:
-            k = k % div
-        else:
-            k = div
-        ans = self.generator(nums, 1, k)
-        ans = "".join(ans)
+            ans = ''
+            for i in range(1, n + 1):
+                ans += str(i)
+            return ans
+        nums = [num for num in range(1, n + 1)]
+        dividers = [1] * (n)
+        for i in range(1, n):
+            dividers[i] = i * dividers[i - 1]
+        ans = ""
+        n = n - 1
+        k = k - 1
+        while nums:
+            cur_div = dividers[n]
+            curidx = k // cur_div
+            k = k % cur_div
+            ans += str(nums[curidx])
+            nums.pop(curidx)
+            n -= 1
         return ans
-    
-    def generator(self, nums, time, dist):
-        if time == dist:
-            return nums
-        l = -1
-        r = -1
-        for i in range(len(nums)-1 , 0, -1):
-            if nums[i - 1] < nums[i]:
-                l = i - 1
-                break
-        if l == -1:
-            time = time + 1
-            nums = nums[::-1]
-            self.generator(nums, time, dist)
-        for i in range(len(nums) - 1, l, -1):
-            if nums[i] > nums[l]:
-                r = i
-                break
-        nums[l], nums[r] = nums[r], nums[l]
-        prefix = nums[:l + 1]
-        suffix = nums[l+1:]
-        if suffix:
-            suffix.sort()
-        nums = prefix + suffix
-        time = time + 1
-        return self.generator(nums, time, dist)
+        
 
 if __name__ == '__main__':
     a = Solution()
-    b = a.getPermutation(9,171669)
+    b = a.getPermutation(4, 9)
     print(b)
 
 
