@@ -70,13 +70,13 @@ class Solution:
                 phead = q
 
             if qhead in conn:
+                qhead = conn[qhead]
                 if qhead == p:
                     intersection = p
-                    break
-                qhead = conn[qhead]
+                    break               
             else:
                 qhead = p
-        if intersection is not None:
+        if intersection is None:
             intersection = phead
         ls = []
         if intersection not in conn:
