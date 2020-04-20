@@ -38,63 +38,79 @@ class TreeNode:
         self.left = None
         self.right = None
 
-class Solution:
-    def lowestCommonAncestor(self, root, p, q):
-        targets = {p, q}
-        conn = collections.defaultdict(TreeNode)
-        def traveller(root, targets):
-            if not targets:
-                return
-            if root.left:
-                conn[root.left] = root
-                if root.left in targets:
-                    targets.remove(root.left)
-                traveller(root.left, targets)
-            if root.right:
-                conn[root.right] = root
-                if root.right in targets:
-                    targets.remove(root.right)
-                traveller(root.left, targets)
-        traveller(root, targets)
-        # linked list intersaction
-        phead = p
-        qhead = q
-        intersection= None
-        while phead != qhead:
-            if phead in conn:
-                phead = conn[phead]
-                if phead == q:
-                    intersection = q
-                    break
-            else:
-                phead = q
+# class Solution:
+#     def lowestCommonAncestor(self, root, p, q):
+#         targets = {p, q}
+#         conn = collections.defaultdict(TreeNode)
+#         def traveller(root, targets):
+#             if not targets:
+#                 return
+#             if root.left:
+#                 conn[root.left] = root
+#                 if root.left in targets:
+#                     targets.remove(root.left)
+#                 traveller(root.left, targets)
+#             if root.right:
+#                 conn[root.right] = root
+#                 if root.right in targets:
+#                     targets.remove(root.right)
+#                 traveller(root.left, targets)
+#         traveller(root, targets)
+#         # linked list intersaction
+#         phead = p
+#         qhead = q
+#         intersection= None
+#         while phead != qhead:
+#             if phead in conn:
+#                 if phead == q:
+#                     intersection = q
+#                     break
+#                 phead = conn[phead]
+#             else:
+#                 phead = q
 
-            if qhead in conn:
-                qhead = conn[qhead]
-                if qhead == p:
-                    intersection = p
-                    break               
-            else:
-                qhead = p
-        if intersection is None:
-            intersection = phead
-        ls = []
-        if intersection not in conn:
-            return intersection
+#             if qhead in conn:
+#                 if qhead == p:
+#                     intersection = p
+#                     break
+#                 qhead = conn[qhead]              
+#             else:
+#                 qhead = p
+#         if intersection is None:
+#             intersection = phead
+#         ls = []
+#         if intersection not in conn:
+#             return intersection
+#         else:
+#             while intersection in conn:
+#                 ls.append([intersection.val, intersection])
+#                 intersection = conn[intersection]
+#             ls.sort()
+#             return ls[0][1]
+
+class Solution(object):
+    def lowestCommonAncestor(self, root, p, q):
+        """
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        """
+        
+        if not root or root == p or root == q:
+            return root
         else:
-            while intersection in conn:
-                ls.append([intersection.val, intersection])
-                intersection = conn[intersection]
-            ls.sort()
-            return ls[0][1]
+            left = self.lowestCommonAncestor(root.left, p, q)
+            right = self.lowestCommonAncestor(root.right, p, q)
+            
+            if left and right: #一个在左子树，一个在右子树
+                return root
+            elif left:#都在左子树
+                return left
+            elif right:#都在右子树
+                return right
+            else:
+                return
+
 
 # @lc code=end
-
-
-if __name__ == '__main__':
-    tree = construct_tree([3,5,1,6,2,0,8,None,None,7,4])
-    v1 = TreeNode(5)
-    v2 = TreeNode(1)
-    a = Solution()
-    b = a.lowestCommonAncestor(tree, v1, v2)
-    print(b)

@@ -6,7 +6,9 @@
 
 # @lc code=start
 class Solution:
-    def minDistance(self, word1: str, word2: str) -> int:
+    def minDistance(self, word1, word2):
+        word1 = list(word1)
+        words = list(word2)
         
 # @lc code=end
 

@@ -6,7 +6,17 @@
 
 # @lc code=start
 class Solution:
-    def isNumber(self, s: str) -> bool:
-        
+    def isNumber(self, s):
+        try:
+            float(s)
+        except:
+            return False
+        return True
+
+
+
+            
+
+
 # @lc code=end
 
