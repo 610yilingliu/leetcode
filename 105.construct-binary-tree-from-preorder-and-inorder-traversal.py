@@ -21,5 +21,13 @@ class Solution:
         node.left = self.buildTree(preorder[1:inorder_idx + 1], inorder[:inorder_idx])
         node.right = self.buildTree(preorder[inorder_idx + 1:], inorder[inorder_idx + 1:])
         return node
+
+
+if __name__ == '__main__':
+    a = Solution()
+    b = a.buildTree([3,9,20,15,7], [9,3,15,20,7])
+    print(b)
 # @lc code=end
 
+
+        
