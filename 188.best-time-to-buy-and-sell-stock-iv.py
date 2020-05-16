@@ -11,29 +11,22 @@ class Solution:
     def maxProfit(self, k, prices):
         if len(prices) < 2:
             return 0
-        rg = len(prices)
-        prof = [[0] * rg for _ in range(rg)]
-        for i in range(rg):
-            for j in range(rg):
-                if i > j and prices[i] - prices[j] > 0:
-                    prof[i][j] = prices[i] - prices[j]
-        maxprof = 0
-        # start from mat[y][0]
-        for starty in range(1, rg):
-            temp_que = collections.deque([0] * k)
-            y = starty
-            x = 0
-            while y < rg and x < rg:
-                curval = prof[y][x]
-                if curval > temp_que[1]:
-                    temp_que.popleft()
-                    temp_que.append(curval)
-                elif curval > temp_que[0]:
-                    temp_que.popleft()
-                    temp_que.appendleft(curval)
-                x += 1
-                y += 1
-            maxprof = max(maxprof, sum(temp_que))
-        return maxprof  
+        if k > len(prices)//2:
+            return sum(i - j for i, j in zip(prices[1:], prices[:-1]) if i - j > 0)
+        dp = [[[0 for state in range(2)] for trans in range(k + 1)] for day in range(len(prices))]
+        for trans in range(k + 1):
+            dp[0][trans][0] = 0
+            dp[0][trans][1] = -prices[0]
+        for p in range(1, len(prices)):
+            for i in range(1, k + 1):
+                dp[p][i][0] = max(dp[p - 1][i][0], dp[p - 1][i][1] + prices[p])
+                dp[p][i][1] = max(dp[p - 1][i][1], dp[p - 1][i - 1][0] - prices[p])
+        return dp[-1][-1][0]
+
+# if __name__ == '__main__':
+#     a = Solution()
+#     b = a.maxProfit(3, [3,3,5,0,0,3,1,4])
+#     print(b)
+
 # @lc code=end
 
