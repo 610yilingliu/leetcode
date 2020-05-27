@@ -1,4 +1,4 @@
-from collections import deque
+import collections
 
 class TreeNode:
     def __init__(self, x):
@@ -6,11 +6,11 @@ class TreeNode:
         self.left = None
         self.right = None
 
-def construct_tree(values):
+def tree_builder(values):
     if not values:
         return None
     root = TreeNode(values[0])
-    queue = deque([root])
+    queue = collections.deque([root])
     leng = len(values)
     nums = 1
     while nums < leng:
@@ -26,5 +26,5 @@ def construct_tree(values):
     return root
 
 if __name__ == '__main__':
-    a = construct_tree([1,None,2,2])
+    a = tree_builder([1,None,2,2])
     print(a)
