@@ -13,16 +13,23 @@ def clean(content, digit):
     for i in range(digit):
         data_counter = dict()
         for line in content:
+            # prevent from spaces at the start/end of each cell, example: '123   '
+            line = line.strip()
+            line = line.split(',')
             for cell in line:
-                # prevent from spaces at the start/end of each cell, example: '123   '
-                cell = cell.strip()
-                # if cell[i] is a number
-                if cell[i].isnumeric():
-                    # trick
-                    data_counter[int(cell[i])] = data_counter.get(int(cell[i]), 0) + 1
-                # if cell[i] is not numeric, for example, for 56.1, cell[2] == '.', we shoule stop the loop
-                else:
-                    break
+                # skip empty cell
+                if not cell:
+                    continue
+                # prevent error from i = 10, cell = '12'
+                if i < len(cell):
+                    # if cell[i] is a number
+                    if cell[i].isnumeric():
+                        # trick
+                        data_counter[int(cell[i])] = data_counter.get(int(cell[i]), 0) + 1
+                    # if cell[i] is not numeric, for example, for 56.123, cell[2] == '.', we should not do anything with the following '123', so set the whole string as
+                    # an empyt one, for the next loop, we can use line 19 to skip it
+                    else:
+                        cell = ''
         numbers.append(data_counter)
     return numbers
 
@@ -52,4 +59,4 @@ def main(filename,no_places,regularise=False):
     return ans
 
 
-    
+
