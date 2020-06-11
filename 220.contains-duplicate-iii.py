@@ -9,9 +9,22 @@ class Solution:
     def containsNearbyAlmostDuplicate(self, nums, k, t):
         if k < 0 or t < 0:
             return False
-        # example: set([1,1,2,3]) = {1,2,3}, length = 3 != 4, so there are duplicated numbers
         if t == 0:
-            return len(set(nums)) != len(nums)
+            # if no duplicated number
+            if len(set(nums)) == len(nums):
+                return False
+            # else check index
+            else:
+                tempd = dict()
+                for idx, num in enumerate(nums):
+                    if num not in tempd:
+                        tempd[num] = idx
+                    else:
+                        if idx - tempd[num] <= k:
+                            return True
+                        tempd[num] = idx
+                return False
+        # if not equal to zero, do bucket sort
         bucket = collections.OrderedDict()
         b_size = t + 1
         for num in nums:
@@ -30,7 +43,7 @@ class Solution:
 
 if __name__ == '__main__':
     a = Solution()
-    b = a.containsNearbyAlmostDuplicate([1,0,1,1], 1, 2)
+    b = a.containsNearbyAlmostDuplicate([1,2,3,4,5,1], 5, 0)
     print(b)
 # @lc code=end
 

@@ -12,10 +12,6 @@ class Solution:
             for i in range(len(num1)):
                 num = num * 10 + int(num1[i]) + int(num2[i])
             return str(num)
-        div = min(len(num1), len(num2))
-        if len(num1) > len(num2):
-            return generator(num2, num1, div)
-        return generator(num1, num2, div)
 
         def generator(shorter, longer, div):
             curnum = 0
@@ -25,5 +21,12 @@ class Solution:
             for j in range(len(shorter)):
                 curnum = curnum * 10 + int(shorter[j]) + int(longer[j + start])
             return curnum
+
+        div = min(len(num1), len(num2))
+        if len(num1) > len(num2):
+            return str(generator(num2, num1, div))
+        return str(generator(num1, num2, div))
+
+
 # @lc code=end
 
