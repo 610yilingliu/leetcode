@@ -1,0 +1,13 @@
+E:\GitStorage\leetcode\C#\debugging\bin\Debug\netcoreapp3.1\debugging.exe
+E:\GitStorage\leetcode\C#\debugging\bin\Debug\netcoreapp3.1\debugging.deps.json
+E:\GitStorage\leetcode\C#\debugging\bin\Debug\netcoreapp3.1\debugging.runtimeconfig.json
+E:\GitStorage\leetcode\C#\debugging\bin\Debug\netcoreapp3.1\debugging.runtimeconfig.dev.json
+E:\GitStorage\leetcode\C#\debugging\bin\Debug\netcoreapp3.1\debugging.dll
+E:\GitStorage\leetcode\C#\debugging\bin\Debug\netcoreapp3.1\debugging.pdb
+E:\GitStorage\leetcode\C#\debugging\obj\Debug\netcoreapp3.1\debugging.csprojAssemblyReference.cache
+E:\GitStorage\leetcode\C#\debugging\obj\Debug\netcoreapp3.1\debugging.AssemblyInfoInputs.cache
+E:\GitStorage\leetcode\C#\debugging\obj\Debug\netcoreapp3.1\debugging.AssemblyInfo.cs
+E:\GitStorage\leetcode\C#\debugging\obj\Debug\netcoreapp3.1\debugging.csproj.CoreCompileInputs.cache
+E:\GitStorage\leetcode\C#\debugging\obj\Debug\netcoreapp3.1\debugging.dll
+E:\GitStorage\leetcode\C#\debugging\obj\Debug\netcoreapp3.1\debugging.pdb
+E:\GitStorage\leetcode\C#\debugging\obj\Debug\netcoreapp3.1\debugging.genruntimeconfig.cache
