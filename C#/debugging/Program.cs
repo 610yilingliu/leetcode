@@ -5,29 +5,22 @@ namespace debugging
 {
     class Program
     {
-        public int LengthOfLongestSubstring(string s) {
-            HashSet<object> notdup = new HashSet<object>();
-            Queue anslist = new Queue();
-            int maxlen = 0;
-            for(int i = 0;i < s.Length;i++){
-                if(notdup.Contains(s[i])){
-                    while(anslist.Count > 0 && notdup.Contains(s[i])){
-                        var curele = anslist.Dequeue();
-                        notdup.Remove(curele);
-                    }
-                }
-                notdup.Add(s[i]);
-                anslist.Enqueue(s[i]);
-                int curlen = anslist.Count;
-                maxlen = curlen > maxlen ? curlen : maxlen;
+        public bool IsPalindrome(int x) {
+            string x_s = x.ToString();
+            int l = 0;
+            int r = x_s.Length;
+            while(l < r){
+                if(x_s[l] != x_s[r]) return false;
+                l ++;
+                r --;
             }
-            return maxlen;
+            return true;
         }
         static void Main(string[] args)
         {
             var a = new Program();
-            string b = "dvdf";
-            var ans = a.LengthOfLongestSubstring(b);
+            int b = 121;
+            var ans = a.IsPalindrome(b);
             System.Console.Write(ans);
             
         }
