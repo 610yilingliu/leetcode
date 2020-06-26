@@ -17,44 +17,25 @@
 
 public class Solution
     {
-        public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
-        {
-            ListNode response;
-
-            var sum = l1.val + l2.val;
-
-            if (sum > 9)
-            {
-                response = new ListNode(sum % 10);
-                SumRecur(l1.next, l2.next, response, 1);
+        public ListNode AddTwoNumbers(ListNode l1, ListNode l2){
+            ListNode head = new ListNode();
+            var pointer = head;
+            int curval = 0;
+            while(l1 != null || l2 != null){
+                curval = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + curval;
+                pointer.next = new ListNode(curval % 10);
+                pointer = pointer.next;
+                // overflow decimal, like 12, we keep 1 for the next loop
+                curval = curval / 10;
+                // if next l1/l2 is not null, go to the next node
+                l1 = l1?.next;
+                l2 = l2?.next;
             }
-            else
-            {
-                response = new ListNode(sum);
-                SumRecur(l1.next, l2.next, response, 0);
+            // if there is overflow left, add a node
+            if(curval != 0){
+                pointer.next = new ListNode(curval);
             }
-
-            return response;
-        }
-
-        public void SumRecur(ListNode l1, ListNode l2, ListNode response, int cof)
-        {
-            if (l1 != null || l2 != null || cof > 0)
-            {
-                var sum = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + cof;
-
-                if (sum > 9)
-                {
-                    sum = sum % 10;
-                    response.next = new ListNode(sum);
-                    SumRecur(l1?.next, l2?.next, response.next, 1);
-                }
-                else
-                {
-                    response.next = new ListNode(sum);
-                    SumRecur(l1?.next, l2?.next, response.next, 0);
-                }
-            }
+            return head.next;
         }
     }
 // @lc code=end

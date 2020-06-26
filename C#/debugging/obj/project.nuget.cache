@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+ZccqIA2aJrk8UsWnE8OMav6m1pCZevekZRdOD4b2EdLCGptWG0+O2+7v9U6GxmDwPZ7E6FaIaElBmgw242NhQ==",
+  "dgSpecHash": "BOzYRtUOCK/+ArTXB4o6fKfohn0yLsJZABP11Oz1fqaNYg0PYHN+M8lNNSSZnEpcnV0nbXqdGxh78El02uvCDw==",
   "success": true,
   "projectFilePath": "E:\\GitStorage\\leetcode\\C#\\debugging\\debugging.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
