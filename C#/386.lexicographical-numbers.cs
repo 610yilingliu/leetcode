@@ -1,11 +1,12 @@
-﻿using System;
+/*
+ * @lc app=leetcode id=386 lang=csharp
+ *
+ * [386] Lexicographical Numbers
+ */
 using System.Collections;
 using System.Collections.Generic;
-namespace debugging
-{
-    class Program
-    {
-
+// @lc code=start
+public class Solution {
     public IList<int> LexicalOrder(int n) {
         var ls = new List<int>();
         for(int i = 1; i < n + 1; i ++){
@@ -55,19 +56,8 @@ namespace debugging
         if(digits_a.Count > 0) return true;
         else return false;
     }
-        static void Main(string[] args)
-        {
-            var a = new Program();
-            int b = 13;
-            var c = a.LexicalOrder(b);
-            foreach(int i in c){
-                Console.WriteLine(i);
-            }
-            // int x = 2;
-            // int y = 12;
-            // var c = a.Comparerule(x, y);
-            // Console.Write(c);
-            
-        }
-    }
 }
+
+
+// @lc code=end
+
