@@ -23,5 +23,19 @@ class Solution:
             preorder(node.right)
         preorder(root)
         return ans
+
+# class Solution:
+#     def preorderTraversal(self, root):
+#         q = []
+#         ans = []
+#         while q or root:
+#             while root:
+#                 ans.append(root.val)
+#                 q.append(root)
+#                 root = root.left
+#             root = q.pop()
+#             root = root.right
+#         return ans
+
 # @lc code=end
 

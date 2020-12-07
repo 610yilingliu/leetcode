@@ -13,23 +13,38 @@ class ListNode:
 
 class Solution:
     def insertionSortList(self, head):
+        # if not head or not head.next:
+        #     return head
+        # dummy = ListNode(0)
+        # dummy.next = head
+        # while head.next:
+        #     if head.val <= head.next.val:
+        #         head = head.next
+        #     else:
+        #         temp = head.next
+        #         cur_sort = dummy
+        #         head.next = head.next.next
+        #         while cur_sort.next and cur_sort.next.val < temp.val:
+        #             cur_sort = cur_sort.next
+        #         temp.next = cur_sort.next
+        #         cur_sort.next = temp
+        # return dummy.next
         if not head or not head.next:
             return head
         dummy = ListNode(0)
         dummy.next = head
         while head.next:
-            if head.val <= head.next.val:
+            if head.val < head.next.val:
                 head = head.next
             else:
-                temp = head.next
+                tmp = head.next
                 cur_sort = dummy
                 head.next = head.next.next
-                while cur_sort.next and cur_sort.next.val < temp.val:
+                while cur_sort.next and cur_sort.next.val < tmp.val:
                     cur_sort = cur_sort.next
-                temp.next = cur_sort.next
-                cur_sort.next = temp
+                tmp.next = cur_sort.next
+                cur_sort.next = tmp
         return dummy.next
-
         
 # @lc code=end
 

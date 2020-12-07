@@ -7,8 +7,6 @@
 # @lc code=start
 class Solution:
     def subarraySum(self, nums, k):
-        # subarraySum(self, nums: List[int], k: int) -> int
-
         # special return conditions
         if not nums:
             return 0
@@ -27,13 +25,6 @@ class Solution:
                 ans += sums[s - k]
             sums[s] = sums.get(s, 0) + 1
         return ans
-
-        
-        
-if __name__ == '__main__':
-    a = Solution()
-    b = a.subarraySum([1,1,1], k = 2)
-    print(b)
 
         
 # @lc code=end

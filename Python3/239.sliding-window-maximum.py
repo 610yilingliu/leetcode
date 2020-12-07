@@ -42,5 +42,10 @@ class Solution(object):
 
         return ans
 
+a = Solution()
+b = a.maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3)
+print(b)
+
+
 # @lc code=end
 

@@ -24,5 +24,8 @@ class Solution:
                 stack.append(tmp.right)
         ans = ans[::-1]
         return ans
+        # while ans:
+        #     final.append(ans.pop())
+        # return final
 # @lc code=end
 
