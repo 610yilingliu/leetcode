@@ -5,7 +5,7 @@
 #
 
 # @lc code=start
-class Solution(object):
+class Solution:
     def numsSameConsecDiff(self, N, K):
         """
         :type N: int
@@ -30,9 +30,9 @@ class Solution(object):
             self.dfs(res, curint * 10 + last - K, N - 1, K)
 
 
-# a = Solution()
-# b = a.numsSameConsecDiff(2, 1)
-# print(b)
+a = Solution()
+b = a.numsSameConsecDiff(2, 1)
+print(b)
 
 # @lc code=end
 
